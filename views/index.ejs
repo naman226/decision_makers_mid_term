@@ -6,18 +6,73 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@500&display=swap" rel="stylesheet">
+
+
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <header>
-    <%- include('partials/_header') %>
-  </header>
-  <h1>Have fun!</h1>
+
+  <div class="main-container">
+    <header class="header">
+      <h2>POLLER</h2>
+      <span>Have a group decision? Make a Poll with Poller!
+      </span>
+    </header>
+
+    <div class="instructions" style="    display: flex; justify-content: space-between; margin-top: 5%;">
+      <div class="how-to">
+        <h3>Add a Question</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          voluptatem eaque praesentium sapiente veniam vitae! Ut voluptas
+          incidunt reprehenderit mollitia, esse cupiditate,
+        </p>
+      </div>
+      <div class="how-to">
+        <h3>Add Options</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          voluptatem eaque praesentium sapiente veniam vitae! Ut voluptas
+
+        </p>
+      </div>
+      <div class="how-to">
+        <h3>Send to Friends</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          voluptatem eaque praesentium sapiente veniam vitae! Ut voluptas
+        </p>
+      </div>
+    </div>
+  </div>
+
+<div class="poll-box">
+  <h3>Make your poll</h3>
+  <form class="poll-form">
+    <input type="text" placeholder="Title">
+    <input type="text" placeholder="Option 1">
+    <input type="text" placeholder="Option 2">
+    <input type="text" placeholder="Option 3">
+    <input type="text" placeholder="Option 4">
+    <button type="submit" class="btn btn-light">Create Poll</button>
+  </form>
+
+
+
+
+
 </body>
 
 </html>
