@@ -55,15 +55,6 @@ app.use('/results', resultsRouter(db));
 app.get("/", (req, res) => {
   res.redirect("/polls");
 });
-// app.get("/created", (req, res) => {
-//   res.render("created");
-// });
-// app.get("/choices", (req, res) => {
-//   res.render("choices");
-// });
-// app.get("/results", (req, res) => {
-//   res.render("results");
-// });
 
 app.listen(PORT, () => {
   console.log(`Decison Maker is listening on port ${PORT}`);
