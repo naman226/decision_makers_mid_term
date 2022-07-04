@@ -55,6 +55,15 @@ app.use('/results', resultsRouter);
 app.get("/", (req, res) => {
   res.render("index");
 });
+app.get("/created", (req, res) => {
+  res.render("created");
+});
+app.get("/choices", (req, res) => {
+  res.render("choices");
+});
+app.get("/results", (req, res) => {
+  res.render("results");
+});
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
