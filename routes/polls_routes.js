@@ -2,18 +2,19 @@ const express = require('express');
 const dbParams = require('../lib/db');
 const router = express.Router();
 
-
 module.exports = (db) => {
 
   router.get('/', (req, res) => {
-    db.query(`SELECT * FROM polls;`)
-      .then(data => {
-        res.render('/(index.ejs)');
+    db.query('SELECT * FROM polls;')
+      .then((data) => {
+        console.log(data.rows);
+        res.render("index", data);
       })
       .catch(err => {
         res.status(404).send(err.message);
       });
-  });
+    });
+
 
   router.get('/:id', (req, res) => {
     db.query(`SELECT * FROM polls;`)
@@ -36,3 +37,9 @@ module.exports = (db) => {
   });
   return router;
 };
+
+// how to get permission to db
+// how to add data from database to html page
+// how to render a page with promise that doesnot need anyhting from db
+// figure out mailgun
+// Where to use query in the post or in the get when rendering the page.

@@ -5,7 +5,7 @@ module.exports = (db) => {
   router.get('/', (req, res) => {
     db.query(`SELECT * FROM choices;`)
       .then(data => {
-        res.render('/(votingpage.ejs)');
+        res.render('/(votingpage.ejs)', data);
       })
       .catch(err => {
         res.status(500).send(err.message);
