@@ -31,3 +31,10 @@ Show that creator of a poll receives two links and can share the submission link
 Show that multiple people can make poll submissions
 Show that the results get updated as people vote and winning choice is based off Borda Count method
 
+## index.ejs
+    
+## created.ejs
+
+## choices.ejs
+
+## results.ejs  

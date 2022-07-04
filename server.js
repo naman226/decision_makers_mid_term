@@ -43,9 +43,9 @@ const resultsRouter = require('./routes/results_routes.js');
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use('/polls', pollsRouter);
-app.use('/choices', choicesRouter);
-app.use('/results', resultsRouter);
+app.use('/polls', pollsRouter(db));
+app.use('/choices', choicesRouter(db));
+app.use('/results', resultsRouter(db));
 // Note: mount other resources here, using the same pattern above
 
 // Home page

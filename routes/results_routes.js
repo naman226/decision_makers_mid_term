@@ -1,8 +1,17 @@
-const express = require('express');
-const router = express.Router();
+module.exports = (db) => {
 
-router.get('/', (req, res) => {
-  res.render('/(results.ejs)');
-});
+  const express = require('express');
+  const router = express.Router();
 
-module.exports = router;
+  router.get('/', (req, res) => {
+    db.query(`SELECT * FROM choices;`)
+      .then(data => {
+        res.render('/(results.ejs)');
+      })
+      .catch(err => {
+        res.status(404).send(err.message);
+      });
+  });
+  return router;
+}
+

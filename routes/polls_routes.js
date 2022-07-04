@@ -1,22 +1,38 @@
 const express = require('express');
 const dbParams = require('../lib/db');
-
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.render('/(homepage.ejs)');
-});
 
+module.exports = (db) => {
 
-router.get('/:id', (req, res) => {
-  dbParams.query
-  res.render('/(thank you for creating the poll.ejs)');
-})
+  router.get('/', (req, res) => {
+    db.query(`SELECT * FROM polls;`)
+      .then(data => {
+        res.render('/(index.ejs)');
+      })
+      .catch(err => {
+        res.status(404).send(err.message);
+      });
+  });
 
+  router.get('/:id', (req, res) => {
+    db.query(`SELECT * FROM polls;`)
+      .then(data => {
+        res.render('/(thank your for creating page.ejs)');
+      })
+      .catch(err => {
+        res.status(404).send(err.message);
+      });
+  });
 
-
-router.post('/', (req, res) => {
-  res.redirect('/polls/:id');
-})
-
-module.exports = router;
+  router.post('/', (req, res) => {
+    db.query(`SELECT * FROM polls JOIN choices;`)
+      .then(data => {
+        res.redirect('/polls/:id');
+      })
+      .catch(err => {
+        res.status(404).send(err.message);
+      });
+  });
+  return router;
+};
