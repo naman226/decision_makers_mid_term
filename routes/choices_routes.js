@@ -3,22 +3,23 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.get('/', (req, res) => {
-    db.query(`SELECT * FROM choices;`)
+    db.query(`SELECT * FROM choices QUERY;`)
       .then(data => {
-        res.render('/(votingpage.ejs)', data);
+        const templateVars = data.rows;
+        res.render('choices', templateVars);
       })
       .catch(err => {
-        res.status(500).send(err.message);
+        res.status(404).send(err.message);
       });
   });
 
   router.post('/:id', (req, res) => {
-    db.query(`SELECT * FROM results;`)
-      .then(data => {
-        res.redirect('/results.ejs)');
+    db.query(`UPDATE choices count QUERY`)
+      .then(() => {
+        res.redirect('results');
       })
       .catch(err => {
-        res.status(500).send(err.message);
+        res.status(404).send(err.message);
       });
   });
   return router;
