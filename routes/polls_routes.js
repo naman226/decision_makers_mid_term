@@ -42,7 +42,7 @@ module.exports = (db) => {
   });
 
   router.get('/:id', (req, res) => {
-
+    console.log('req.params:', req.params);
     //url(req.params)
     res.render('created');
   });
