@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 module.exports = (db) => {
+
+  // Route to choices page where voters make their rankings of the choices in a poll
   router.get("/", (req, res) => {
     db.query(
     `SELECT polls.name as poll_name, choices.name, choices.description
@@ -23,6 +25,7 @@ module.exports = (db) => {
       });
   });
 
+  // Route to submit the rankings of the choices in the poll => redirects to the results page
   router.post("/:id", (req, res) => {
     db.query(`UPDATE choices count QUERY`)
       .then(() => {

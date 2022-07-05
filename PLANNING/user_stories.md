@@ -34,14 +34,8 @@
 9. the results are ranked using the Borda Count method: https://en.wikipedia.org/wiki/Borda_count *<= NO USER STORY*
 10. note: this app does not follow the typical user authentication process: voters don't need to register or log in and the only way to access the polls or see the results is via links *<= NO USER STORY*
 
-
 ------------------------------------
-## Questions for Andy
 
-1. What do you think about our user stories & scenarios? Are we missing anything? or are they too complex and need to be broken up into smaller stories/scenarios?
-2. Can you give us any feedback on what we are required to do with the Administrative Link or should do with it? The requirements only say that it lets them access the results. How is that any different that the link to the results page? Is it left intentionally vague for us to implement stretch work or are we mising required implementation?
-3. We've started thinking about our ERD, we know we need at least 3 tables one of the poll and one for the poll choices, one for results. We're wondering if we should have an exta table for the hierarchy selections for each poll option?
-4. We're also wondering if we will need to deal with cookies at all? Since there isn't any logins we won't need to track users. 
 
 
 

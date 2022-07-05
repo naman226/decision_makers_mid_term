@@ -21,6 +21,7 @@ module.exports = (db) => {
     const description3 = req.body.description3;
     const description4 = req.body.description4
 
+    // Route for creation of poll on home page
     db.query(`INSERT INTO polls (name, email)
     Values ($1, $2) RETURNING *;`, [name, email])
       .then((polls) => {
@@ -41,6 +42,7 @@ module.exports = (db) => {
       });
   });
 
+  // Route redirects to creation page with links to share after poll is created
   router.get('/:id', (req, res) => {
     console.log('req.params:', req.params);
     //url(req.params)
