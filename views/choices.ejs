@@ -32,14 +32,17 @@
 
   <div class="main-container">
     <div class="choices-box">
-      <div class="question"> Question</div>
+      <div class="question"> <%= poll_name %></div>
+      <span><% for(const choice of choices) { %>
 
       <div class="choices">
         <div class="item">
-          <span class="text">Option 1</span>
+          <span class="text"><%= choice.name %>: <%= choice.description %></span>
           <i class="fa-solid fa-bars"></i>
           </div>
-        <div class="item">
+
+          <% } %></span>
+        <!-- <div class="item">
           <span class="text">Option 2</span>
           <i class="fa-solid fa-bars"></i>
         </div>
@@ -51,7 +54,7 @@
         <div class="item">
           <span class="text">Option 4</span>
           <i class="fa-solid fa-bars"></i>
-        </div>
+        </div> -->
       </div>
       <button type="submit" class="btn btn-light">Create Poll</button>
 
