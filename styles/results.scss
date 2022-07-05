@@ -1,0 +1,37 @@
+.instruction{
+  background-color: #fff3f3;
+  flex-basis: 31%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  padding: 20px 12px;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+body{
+  padding-top: 200px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.instructions{
+  background-color: #fff3f3;
+  padding: 25px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 5%;
+  width: 75vw;
+  height: 60vh;
+
+}
+.main-container{
+  display: flex;
+  justify-content: center;
+  padding: 20px;;
+
+}
+
+
