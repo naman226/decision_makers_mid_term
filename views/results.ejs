@@ -33,13 +33,11 @@
 
 
 <div class="poll-box">
-  <h3>Make your poll</h3>
+  <h3>Results!</h3>
+  <span><% for(const choice of choices) { %>
   <form class="poll-form">
-    <input type="text" placeholder="Email">
-    <input type="text" placeholder="1st place">
-    <input type="text" placeholder="2st place">
-    <input type="text" placeholder="3st place">
-    <input type="text" placeholder="4st place">
+    <p> <%= choice.name %></p>
+    <% } %></span>
 
   </form>
 

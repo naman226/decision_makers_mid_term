@@ -1,12 +1,17 @@
+const express = require('express');
+const router = express.Router();
+
 module.exports = (db) => {
 
-  const express = require('express');
-  const router = express.Router();
 
   router.get('/', (req, res) => {
-    db.query(`SELECT as preference query;`)
-      .then((data) => {
-        const templateVars = data.rows;
+    db.query(`SELECT choices.name, choices.description, sum(choices.result_count) as preference
+    FROM choices
+    WHERE poll_id = 1
+    GROUP BY choices.name, choices.description
+    ORDER BY preference;`)
+      .then((pollResults) => {
+        const templateVars = {choices: pollResults.rows};
         res.render('results', templateVars);
       })
       .catch(err => {
