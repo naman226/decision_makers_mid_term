@@ -10,12 +10,17 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    let query = `SELECT * FROM widgets`;
+    let query = `
+    SELECT choices.name, choices.description, sum(choices.result_count) as preference
+    FROM choices
+    WHERE poll_id = 1 GROUP BY choices.name, choices.description
+    ORDER BY preference;`;
     console.log(query);
     db.query(query)
       .then(data => {
-        const widgets = data.rows;
-        res.json({ widgets });
+        console.log(data.rows);
+        const templateVars = {choices: data.rows};
+  // res.render('', templateVars)
       })
       .catch(err => {
         res
