@@ -45,9 +45,9 @@ module.exports = (db) => {
 
   // Route redirects to creation page with links to share after poll is created
   router.get('/:id', (req, res) => {
-    console.log('req.params:', req.params);
-    //url(req.params)
-    res.render('created');
+    const poll_id = req.params.id;
+    const templateVars = {poll_id}
+    res.render('created', templateVars);
   });
 
   return router;
