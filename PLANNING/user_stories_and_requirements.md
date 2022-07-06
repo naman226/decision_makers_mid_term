@@ -23,16 +23,16 @@
 ----------------------------------
 
 ## Requirements
-1. a user can create a poll with multiple choices
-2. each choice ("option") can have a title and optional description
-3. the creator must enter an email
-4. when a poll is finished being created, the user is given two links: an administrative link(???) (which lets them access the results) and a submission link (which the user sends to their friends) *<= NO USER STORY*
-5. the links are also sent to the creator via email (using mailgun) *<= NO USER STORY*
-6. when a user visits the submission link, they enter their name if required and see a list of the choices for that poll
-7. the user can rank the choices (by drag and drop, or some other method) and then submits the poll
-8. each time a submission is received, the creator is notified with an email (which includes the administrative link and a link to the results) *<= NO USER STORY*
-9. the results are ranked using the Borda Count method: https://en.wikipedia.org/wiki/Borda_count *<= NO USER STORY*
-10. note: this app does not follow the typical user authentication process: voters don't need to register or log in and the only way to access the polls or see the results is via links *<= NO USER STORY*
+1. [X]a user can create a poll with multiple choices
+2. [X] each choice ("option") can have a title and optional description
+3. [] the creator must enter an email
+4. [X] when a poll is finished being created, the user is given two links: an administrative link(???) (which lets them access the results) and a submission link (which the user sends to their friends) *<= NO USER STORY*
+5. [] the links are also sent to the creator via email (using mailgun) *<= NO USER STORY*
+6. [] when a user visits the submission link, they enter their name if required and see a list of the choices for that poll
+7. [X] the user can rank the choices (by drag and drop, or some other method) and then submits the poll
+8. [] each time a submission is received, the creator is notified with an email (which includes the administrative link and a link to the results) *<= NO USER STORY*
+9. [X] the results are ranked using the Borda Count method: https://en.wikipedia.org/wiki/Borda_count *<= NO USER STORY*
+10. [X] note: this app does not follow the typical user authentication process: voters don't need to register or log in and the only way to access the polls or see the results is via links *<= NO USER STORY*
 
 ------------------------------------
 
