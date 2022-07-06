@@ -12,10 +12,12 @@ module.exports = (db) => {
     GROUP BY polls.name, choices.name, choices.description
     ORDER BY choices.name;`
     )
-      .then((data) => {
+      // pass each choices and its description, the question as poll_name and the poll id to the front end to render the page and url correctly
+    .then((data) => {
         const templateVars = {
           choices: data.rows,
           poll_name: data.rows[0].poll_name,
+          poll_id: req.params.id
         };
         res.render("choices", templateVars);
       })
@@ -26,26 +28,31 @@ module.exports = (db) => {
 
   // Route to submit the rankings of the choices in the poll => redirects to the results page
   router.post("/:id", (req, res) => {
+
+    const poll_id = req.params.id;
+    // Object.entries creates an array of objects to allow us to loop over them
     const parsed = Object.entries(req.body);
-    console.log("req.body", parsed);
+    // create array to catch promises
+    const promises = []
+
     for (const element of parsed) {
       const choice = element[0];
       const vote = element[1];
-      console.log(element);
-      db.query(
-        `UPDATE choices  SET result_count = result_count + $1
-      WHERE choices.name = $2 AND poll_id = $3 RETURNING *;`,
-        [vote, choice, req.params.id]
-      )
-        .then((data) => {
-          res.status(200).send("Thanks for voting");
-          console.log(data.rows);
-        })
-        .catch((err) => {
+      promises.push(db.query(
+        `UPDATE choices
+        SET result_count = result_count + $1
+        WHERE choices.name = $2 AND poll_id = $3 RETURNING *;`,
+        [vote, choice, poll_id]
+      ).then((choicesRanked) => choicesRanked.rows))
+    }
+
+    // using Promise.All to execute all the promises outside of the loop as they are async and the loop is sync
+    Promise.all(promises)
+
+      .catch((err) => {
           res.status(404).send(err.message);
         });
-    }
-    res.redirect("/results");
+      res.redirect(`/results/${req.params.id}`);
   });
   return router;
 };

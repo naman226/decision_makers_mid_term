@@ -10,6 +10,7 @@ module.exports = (db) => {
     });
 
   router.post('/', (req, res) => {
+    // capture the required contents from the body and assign them to individual variables
     const email = req.body.email;
     const name = req.body.name;
     const option1 = req.body.option1;

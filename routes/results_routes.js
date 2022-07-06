@@ -4,12 +4,16 @@ const router = express.Router();
 module.exports = (db) => {
 
   // Route to results page => will work for updated and final results
-  router.get('/', (req, res) => {
-    db.query(`SELECT choices.name, choices.description, sum(choices.result_count) as preference
-    FROM choices
-    WHERE poll_id = 1
-    GROUP BY choices.name, choices.description
-    ORDER BY preference;`)
+  router.get('/:id', (req, res) => {
+    const poll_id = req.params.id;
+    db.query(`SELECT polls.name as question, choices.name, choices.description, result_count
+      FROM polls
+      JOIN choices
+      ON polls.id = poll_id
+      WHERE poll_id = $1
+      GROUP BY polls.name, choices.name, choices.description, result_count
+      ORDER BY result_count;`, [poll_id])
+      // pass the results and the poll_id to the front end to render the results and provide the correct url
       .then((pollResults) => {
         const templateVars = {choices: pollResults.rows};
         res.render('results', templateVars);
