@@ -41,8 +41,14 @@
 
   <body>
     <header class="header">
-      <h2>POLLER</h2>
-      <span>Have a group decision? Make a Poll with Poller! </span>
+      <div class="title">
+        <input type="image" id="image" alt="Login"
+        src="/docs/poller_logo.png">
+          <h2>POLLER</h2>
+       </div>
+      <span>Have a group decision? Make a Poll with Poller!
+      </span>
+
     </header>
 
     <!-- Created Poll Page => Links to results and voting submission -->
@@ -57,14 +63,15 @@
             It's time to start sharing your poll! Here are two links, one to
             share with friends and the other for you to check the results!
           </p>
+          <!-- !!! ADD STYLING TO MAKE FONT AND SPACING BIGGER !!! -->
           <div class="polling-link">
-            <textarea class="link"> the link is here</textarea>
+             <a href="/choices/<%=poll_id%>">http://localhost:8080/choices/<%=poll_id%></a>
             <div class="icons">
               <i class="fa-solid fa-share-nodes fa-2x"></i>
             </div>
           </div>
           <div class="admin-link">
-            <textarea class="link"> the link is here</textarea>
+            <a href="/results/<%=poll_id%>">http://localhost:8080/results/<%=poll_id%></a>
             <div class="icons">
               <i class="fa-solid fa-share-nodes fa-2x"></i>
             </div>
