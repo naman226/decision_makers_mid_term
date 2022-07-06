@@ -36,12 +36,12 @@
 
 
 
-
+<!-- Results Display -->
   <div class="instructions">
       <h3>Results!</h3>
       <div class="results">
       <span><% for(const choice of choices) { %>
-        <h4> <%= choice.name %></h4>
+        <h4> <%= choice.name %> <%= choice.result_count %></h4>
         <br>
         <% } %></span>
       </div>

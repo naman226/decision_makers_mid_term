@@ -29,8 +29,9 @@
       </span>
     </header>
 
+    <!-- Poll Vote Submission -->
         <div class="main-container">
-          <form action="/choices/1" method="POST">
+          <form action="/choices/<%=poll_id%>" method="POST">
           <div class="choices-box">
             <div class="question"> <%= poll_name %></div>
             <div class="choices">
