@@ -30,30 +30,25 @@
     </header>
 
         <div class="main-container">
+          <form action="/choices/1" method="POST">
           <div class="choices-box">
             <div class="question"> <%= poll_name %></div>
-
             <div class="choices">
               <% for(const choice of choices) { %>
                 <span>
                 <div class="item">
-                  <span class="text"><%= choice.name %>: <%= choice.description %></span>
-                  <i class="fa-solid fa-bars"></i>
+                  <span class="text"><%=choice.name%>: <%=choice.description%></span>
+                  <select class="1-4" name="<%=choice.name%>"></select>
+                  <option name="choice"value="1st"></option>
                   </div>
                 </span>
                 <% } %>
             </div>
-            <button type="submit" class="btn btn-light">Create Poll</button>
+            <button type="submit" class="btn btn-light">Submit Votes</button>
+          </form>
           </div>
         </div>
 
-
-    <script>
-      const dragArea = document.querySelector(".choices")
-      new Sortable(dragArea, {
-        animation:350
-      })
-    </script>
 
 
 </body>
