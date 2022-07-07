@@ -14,7 +14,9 @@ body{
   flex-direction: column;
 
 }
-
+.results{
+  margin-top: 15px;
+}
 .instructions{
   background-color: #fff3f3;
   padding: 25px;
@@ -23,8 +25,8 @@ body{
   flex-direction: column;
   justify-content: flex-start;
   margin-top: 5%;
-  width: 75vw;
-  height: 60vh;
+  width: 35em;
+  height: 25em;
 
 }
 .main-container{
@@ -34,4 +36,8 @@ body{
 
 }
 
+.results_header{
 
+  margin-bottom: 25px;
+
+}
