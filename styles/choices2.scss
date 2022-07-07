@@ -38,6 +38,7 @@ body{
   background-color: #aca397;
   color: #fff;
   display: flex;
+  flex-direction: row;
   border-radius: 3px;
   padding:  12px 17px;
   margin-bottom: 8px;
@@ -45,7 +46,10 @@ body{
   justify-content: space-between;
 
 }
-
+.words{
+  display: flex;
+  flex-direction: column;
+}
 .question{
   background-color: #aca397;
   color: #fff;
@@ -54,7 +58,8 @@ body{
   padding:  12px 17px;
   margin-bottom: 8px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  font-size: 22px;
 }
 .choices-box .text {
   font-size: 18px;

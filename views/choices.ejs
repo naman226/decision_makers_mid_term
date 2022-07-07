@@ -42,14 +42,19 @@
             <input required type="text" placeholder="Enter your name" class="user-name">
             <% }%>
           <div class="choices-box">
-            <div class="question"> <%= poll_name %></div>
+            <div class="question"> <b><%= poll_name %></b></div>
             <div class="choices">
               <% for(const choice of choices) { %>
                 <span>
                 <div class="item">
-                  <span class="text"><%=choice.name%>: <%=choice.description%></span>
+                  <div class="words">
+                  <span class="text"><b><%=choice.name%></b></span>
+                  <span> <%=choice.description%></span>
+                  </div>
+                <div class="numbers">
                   <select class="1-4" name="<%=choice.name%>"></select>
                   <option name="choice"value="1st"></option>
+                </div>
                   </div>
                 </span>
                 <% } %>
