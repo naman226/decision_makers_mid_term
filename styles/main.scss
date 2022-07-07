@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
 body {
   display: flex;
   flex-direction: column;
   padding-top: 200px;
-  font-family: 'Circular-Loom';
+  font-family: 'Ubuntu', sans-serif;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
