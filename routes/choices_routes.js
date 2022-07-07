@@ -14,8 +14,8 @@ module.exports = (db) => {
       `SELECT polls.name as poll_name, choices.name, choices.description, polls.name_required
     FROM choices
     JOIN polls ON poll_id = polls.id
-    WHERE poll_id = ${req.params.id}ll
-    GROUP BY polls.name, choices.name, choices.description, pos.name_required
+    WHERE poll_id = ${req.params.id}
+    GROUP BY polls.name, choices.name, choices.description, polls.name_required
     ORDER BY choices.name;`
     )
       // pass each choices and its description, the question as poll_name and the poll id to the front end to render the page and url correctly
@@ -67,9 +67,9 @@ module.exports = (db) => {
         // use another promise to send a new email to poll creator when a new submission is made on their poll
         .then((pollData) => {
 
-          const pollEmail = pollData.rows;
+          // retrieve the email from the array and object
+          const pollEmail = pollData.rows[0].email;
           const emailLinks = `Another user has submitted their vote on the poll you created. Below is the link to your updated results.
-
           Result link to view your most up-to-date results: http://localhost/results/${pollId}`;
 
           const data = {
