@@ -21,20 +21,18 @@ module.exports = (db) => {
     const description2 = req.body.description2;
     const description3 = req.body.description3;
     const description4 = req.body.description4
-
+    const name_required =req.body.name_required;
     // Route for creation of poll on home page
-    db.query(`INSERT INTO polls (name, email)
-    Values ($1, $2) RETURNING *;`, [name, email])
+    db.query(`INSERT INTO polls (name, email, name_required)
+    Values ($1, $2, $3) RETURNING *;`, [name, email, name_required])
       .then((polls) => {
         const pollId = polls.rows[0].id;
-        console.log('pollId:', pollId);
         db.query(`INSERT INTO choices (poll_id, name, description)
         VALUES (${pollId}, $1, $5),
         (${pollId}, $2, $6),
         (${pollId}, $3, $7),
         (${pollId}, $4, $8) RETURNING *;`, [option1, option2, option3, option4, description1, description2, description3, description4])
         .then((choices) => {
-          console.log('new data:', choices.rows);
           res.redirect(`/polls/${pollId}`);
         });
       })

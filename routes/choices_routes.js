@@ -5,11 +5,11 @@ module.exports = (db) => {
   // Route to choices page where voters make their rankings of the choices in a poll
   router.get("/:id", (req, res) => {
     db.query(
-      `SELECT polls.name as poll_name, choices.name, choices.description
+      `SELECT polls.name as poll_name, choices.name, choices.description, polls.name_required
     FROM choices
     JOIN polls ON poll_id = polls.id
     WHERE poll_id = ${req.params.id}
-    GROUP BY polls.name, choices.name, choices.description
+    GROUP BY polls.name, choices.name, choices.description, polls.name_required
     ORDER BY choices.name;`
     )
       // pass each choices and its description, the question as poll_name and the poll id to the front end to render the page and url correctly
@@ -17,7 +17,8 @@ module.exports = (db) => {
         const templateVars = {
           choices: data.rows,
           poll_name: data.rows[0].poll_name,
-          poll_id: req.params.id
+          poll_id: req.params.id,
+          name_required: data.rows[0].name_required
         };
         res.render("choices", templateVars);
       })
