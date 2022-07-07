@@ -59,23 +59,22 @@
       >
         <div class="creation-message">
           <h3>Your Poll Has Been Created!</h3>
-          <p>
+          <p class="message">
             It's time to start sharing your poll! Here are two links, one to
             share with friends and the other for you to check the results!
           </p>
           <!-- !!! ADD STYLING TO MAKE FONT AND SPACING BIGGER !!! -->
+
           <div class="polling-link">
-             <a href="/choices/<%=poll_id%>">http://localhost:8080/choices/<%=poll_id%></a>
-            <div class="icons">
-              <i class="fa-solid fa-share-nodes fa-2x"></i>
-            </div>
+              <h5>Polling Link:</h5>
+             <a class="polling_link" href="/choices/<%=poll_id%>">http://localhost:8080/choices/<%=poll_id%></a>
           </div>
+
           <div class="admin-link">
-            <a href="/results/<%=poll_id%>">http://localhost:8080/results/<%=poll_id%></a>
-            <div class="icons">
-              <i class="fa-solid fa-share-nodes fa-2x"></i>
-            </div>
+            <h5>Results Link:</h5>
+            <a class="results_link" href="/results/<%=poll_id%>">http://localhost:8080/results/<%=poll_id%></a>
           </div>
+
         </div>
       </div>
     </div>

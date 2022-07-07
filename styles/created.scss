@@ -10,7 +10,15 @@ body{
   max-width: 800px;
   width: 100%;
   border-radius: 3px;
+  transition: 0.5s;
+  box-sizing: border-box;
 
+}
+.message{
+  margin-bottom: 38px;
+}
+.instructions:hover{
+  box-shadow: 0 0 20px 0px rgba(0,0,0, 0.2)
 }
 .main-container{
   display: flex;
@@ -23,9 +31,16 @@ body{
   flex-direction: row;
   width: 90%;
 }
+.polling_link{
+  padding-left:15px;
+}
 .admin-link{
   display:flex;
   flex-direction: row;
+  margin-top: 15px;
+}
+.results_link{
+  padding-left:15px;
 }
 .icons{
   width: 15%;
