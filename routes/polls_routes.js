@@ -27,11 +27,10 @@ module.exports = (db) => {
     const description2 = req.body.description2;
     const description3 = req.body.description3;
     const description4 = req.body.description4
-
+    const name_required =req.body.name_required;
     // Route for creation of poll on home page
-    db.query(`INSERT INTO polls (name, email)
-    Values ($1, $2) RETURNING *;`, [name, email])
-
+    db.query(`INSERT INTO polls (name, email, name_required)
+    Values ($1, $2, $3) RETURNING *;`, [name, email, name_required])
       .then((polls) => {
 
         const pollId = polls.rows[0].id;

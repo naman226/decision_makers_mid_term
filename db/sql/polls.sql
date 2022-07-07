@@ -3,7 +3,8 @@ DROP TABLE IF EXISTS polls CASCADE;
 CREATE TABLE polls (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL
+  email VARCHAR(255) NOT NULL,
+  name_required BOOLEAN DEFAULT false
 );
 
 INSERT INTO polls (name, email)

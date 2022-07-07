@@ -6,7 +6,8 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/header.css" type="text/css" />
@@ -27,10 +28,9 @@
   <div class="main-container">
     <header class="header">
       <div class="title">
-        <input type="image" id="image" alt="Login"
-        src="/docs/poller_logo.png">
-          <h2>POLLER</h2>
-       </div>
+        <input type="image" id="image" alt="Login" src="/docs/poller_logo.png">
+        <h2>POLLER</h2>
+      </div>
       <span>Have a group decision? Make a Poll with Poller!
       </span>
 
@@ -65,32 +65,39 @@
   </div>
 
   <!-- Poll Creation -->
-<div class="poll-box">
-  <h3>Make your poll</h3>
-  <form method="POST" action="/polls" class="poll-form">
-    <div class="email-name">
-    <input type="text" name="email" placeholder="Email">
-    <input type="text" name="name" placeholder="Title">
-  </div>
+  <div class="poll-box">
+    <h3>Make your poll</h3>
+    <form method="POST" action="/polls" class="poll-form">
+      <div class="email-name">
+        <input type="email" required name="email" placeholder="Email">
+        <input type="text" name="name" placeholder="Title" required>
+      </div>
 
-<div class="options-descriptions">
-    <div class="options">
-    <input type="text" name="option1" placeholder="Option 1">
-    <input type="text" name="option2" placeholder="Option 2">
-    <input type="text" name="option3" placeholder="Option 3">
-    <input type="text" name="option4" placeholder="Option 4">
-    </div>
-    <div class="description">
-    <input type="text" name="description1" placeholder="Description...">
-    <input type="text" name="description2" placeholder="Description...">
-    <input type="text" name="description3" placeholder="Description...">
-    <input type="text" name="description4" placeholder="Description...">
-    </div>
-  </div>
-    <div class="btn">
-      <button type="submit" class="btn btn-light">Create Poll</button>
-    </div>
-  </form>
+      <div class="options-descriptions">
+        <div class="options">
+          <input type="text" name="option1" placeholder="Option 1" required>
+          <input type="text" name="option2" placeholder="Option 2" required>
+          <input type="text" name="option3" placeholder="Option 3" required>
+          <input type="text" name="option4" placeholder="Option 4" required>
+        </div>
+        <div class="description">
+          <input type="text" name="description1" placeholder="Description...">
+          <input type="text" name="description2" placeholder="Description...">
+          <input type="text" name="description3" placeholder="Description...">
+          <input type="text" name="description4" placeholder="Description...">
+        </div>
+      </div>
+      <div>
+        <label for="name_required">Do you want the poll taker to add their name?</label>
+        <select class="name_required" name="name_required">
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
+      <div class="btn">
+        <button type="submit" class="btn btn-light">Create Poll</button>
+      </div>
+    </form>
 
 
 
