@@ -1,6 +1,12 @@
+require("dotenv").config();
 const express = require('express');
 const dbParams = require('../lib/db');
 const router = express.Router();
+const mailgun = require('mailgun-js');
+
+const api_key = process.env.api_key;
+const domain = process.env.domain;
+const mg = mailgun({apiKey: api_key, domain: domain});
 
 module.exports = (db) => {
 
@@ -26,14 +32,34 @@ module.exports = (db) => {
     db.query(`INSERT INTO polls (name, email, name_required)
     Values ($1, $2, $3) RETURNING *;`, [name, email, name_required])
       .then((polls) => {
+
         const pollId = polls.rows[0].id;
         db.query(`INSERT INTO choices (poll_id, name, description)
         VALUES (${pollId}, $1, $5),
         (${pollId}, $2, $6),
         (${pollId}, $3, $7),
         (${pollId}, $4, $8) RETURNING *;`, [option1, option2, option3, option4, description1, description2, description3, description4])
-        .then((choices) => {
+
+        .then(() => {
+
+          const emailLinks = `Here are the links to your most recently created poll.
+
+          Submission link to share with your friends: http://localhost/choices/${pollId}
+
+          Result link to view your most up-to-date results: http://localhost/results/${pollId}`
+
+          const data = {
+            from: 'Poller, <info@poller.com>',
+            to: `${email}`,
+            subject: 'Your Poll Links',
+            text: `${emailLinks}`
+          };
+          mg.messages().send(data, function (error, body) {
+            console.log(body);
+          });
+
           res.redirect(`/polls/${pollId}`);
+
         });
       })
       .catch(err => {
