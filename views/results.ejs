@@ -44,10 +44,11 @@
 <!-- Results Display -->
 <!-- Add the poll name somewhere!!!!!! -->
   <div class="instructions">
-      <h3>Results!</h3>
+      <h3 class="results_header"><u>Results!</u></h3>
+      <p><i>Results are calculated with Borda Count method. A lower the score indicates the option was preferred amongst voters.</i></p>
       <div class="results">
       <span><% for(const choice of choices) { %>
-        <h4> <%= choice.name %> <%= choice.result_count %></h4>
+        <h4> <%= choice.name %>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= choice.result_count %></h4>
         <br>
         <% } %></span>
       </div>
