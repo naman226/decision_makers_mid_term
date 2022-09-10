@@ -1,5 +1,22 @@
-LHL Node Skeleton
+# POLLER - The Decision Maker App
+### Do you need to make a group decision, use this app to create a polling question and send the link to friends, allowing them to vote! The results use the Borda count method so the result with the lowest number reflects the most perefered choice, ie. it received more first and second place positons in the votes!
 =========
+
+## Header 
+![header](https://github.com/naman226/decision_makers_mid_term/blob/master/docs/header.jpeg?raw=true)
+
+## Form
+![form](https://github.com/naman226/decision_makers_mid_term/blob/master/docs/form.jpeg?raw=true)
+
+## Creation message
+![created](https://github.com/naman226/decision_makers_mid_term/blob/master/docs/created.jpeg?raw=true)
+
+## Polling Questions for Friends
+![questions](https://github.com/naman226/decision_makers_mid_term/blob/master/docs/questions.jpeg?raw=true)
+
+## Results
+![results](https://github.com/naman226/decision_makers_mid_term/blob/master/docs/results.jpeg?raw=true)
+
 
 ## Project Setup
 
